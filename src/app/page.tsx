@@ -63,9 +63,16 @@ export default function Home() {
         <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">회원가입</button>
       </Link>
 
-      {/* 검색 버튼 추가 */}
+      {/* 검색 버튼 */}
       <Link href="/search">
         <button className="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">🔍 검색</button>
+      </Link>
+
+      {/* 새 에피그램 추가 버튼 */}
+      <Link href="/epigram/new">
+        <button className="mt-4 px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">
+          ➕ 새 에피그램 추가
+        </button>
       </Link>
 
       {/* 에피그램 리스트 */}
@@ -76,6 +83,13 @@ export default function Home() {
           <div key={epigram.id} className="border rounded-lg p-4 mb-6 shadow-lg">
             <p className="text-lg font-semibold">"{epigram.content}"</p>
             <p className="text-sm text-gray-500 mt-1">- {epigram.author}</p>
+
+            {/* 상세 페이지 이동 버튼 */}
+            <Link href={`/epigram/${epigram.id}`}>
+              <button className="mt-2 px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500">
+                상세 보기 🔎
+              </button>
+            </Link>
 
             {/* 좋아요 버튼 */}
             <div className="mt-3 flex items-center space-x-2">
@@ -120,6 +134,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 
